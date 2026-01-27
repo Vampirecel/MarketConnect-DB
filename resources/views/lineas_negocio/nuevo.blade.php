@@ -20,21 +20,19 @@
 
             <div class="form-group">
                 <label for="nombre_linea">Nombre</label>
-                <input type="text" id="nombre_linea" name="nombre_linea" value="{{$lineasNegocio->nombre_linea}}" class="form-control" placeholder="Nombre de la línea de negocio">
+                <input type="text" id="nombre_linea" name="nombre_linea" value="{{$lineasNegocio->nombre_linea}}" class="form-control" placeholder="Nombre de la línea de negocio" required>
             </div>
             <div class="form-group">
                 <label for="descripcion">Descripción</label>
-                <input type="text" id="descripcion" name="descripcion" value="{{$lineasNegocio->descripcion}}" class="form-control" placeholder="Descripción del producto">
+                <input type="text" id="descripcion" name="descripcion" value="{{$lineasNegocio->descripcion}}" class="form-control" placeholder="Descripción del producto" required>
             </div>
 
             <div class="form-group">
                 <label for="estado">Estado</label>
-                <input type="text" id="estado" name="estado" value="{{$lineasNegocio->estado}}" class="form-control" placeholder="Estado">
-            </div>
-
-            <div class="form-group">
-                <label for="fecha_creacion">Fecha Creación</label>
-                <input type="date" id="fecha_creacion" name="fecha_creacion" value="{{$lineasNegocio->fecha_creacion}}" class="form-control" placeholder="Fecha Creación">
+                <select id="estado" name="estado" class="form-control" required>
+                    <option value="Activo" {{ $lineasNegocio->estado == "Activo" ? 'selected' : '' }}>Activo</option>
+                    <option value="Inactivo" {{ $lineasNegocio->estado == "Inactivo" ? 'selected' : '' }}>Inactivo</option>
+                </select>
             </div>
 
             <div class="d-flex justify-content-center mt-4">

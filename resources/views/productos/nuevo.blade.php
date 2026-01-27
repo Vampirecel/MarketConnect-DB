@@ -17,28 +17,38 @@
         <form action="{{route('productos.guardar')}}" method="POST">
             @csrf
             <input type="hidden" name="id" value="{{$productos->id}}">
+
             <div class="form-group">
-                <label for="linea_negocio">Línea de Negocio</label>
-                <input type="text" id="linea_negocio" name="linea_negocio" value="{{$productos->linea_negocio}}" class="form-control" placeholder="Línea de Negocio">
+                <label for="id_linea_negocio">Línea de Negocio</label>
+                <select id="id_linea_negocio" name="id_linea_negocio" class="form-control" required>
+                    <option value="" disabled {{ is_null($productos->id_linea_negocio) ? 'selected' : '' }}>-- Seleccione una línea --</option>
+                    @foreach($lineasNegocio as $linea)
+                    <option value="{{ $linea->id }}"
+                        {{ $productos->id_linea_negocio == $linea->id ? 'selected' : '' }}>
+                        {{ $linea->nombre_linea }}
+                    </option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="form-group">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" value="{{$productos->nombre}}" class="form-control" placeholder="Nombre del producto">
+                <label for="nombre_producto">Nombre</label>
+                <input type="text" id="nombre_producto" name="nombre_producto" value="{{$productos->nombre_producto}}" class="form-control" placeholder="Nombre del producto" required>
             </div>
+
             <div class="form-group">
                 <label for="descripcion">Descripción</label>
-                <input type="text" id="descripcion" name="descripcion" value="{{$productos->descripcion}}" class="form-control" placeholder="Descripción del producto">
+                <input type="text" id="descripcion" name="descripcion" value="{{$productos->descripcion}}" class="form-control" placeholder="Descripción del producto" required>
             </div>
 
             <div class="form-group">
                 <label for="precio">Precio</label>
-                <input type="number" id="precio" name="precio" value="{{$productos->precio}}" class="form-control" placeholder="Precio">
+                <input type="number" id="precio" name="precio" value="{{$productos->precio}}" class="form-control" placeholder="Precio" step="0.01" min="0" required>
             </div>
 
             <div class="form-group">
                 <label for="existencia">Existencia</label>
-                <input type="number" id="existencia" name="existencia" value="{{$productos->existencia}}" class="form-control" placeholder="Existencia">
+                <input type="number" id="existencia" name="existencia" value="{{$productos->existencia}}" class="form-control" placeholder="Existencia" min="0" required>
             </div>
 
             <div class="d-flex justify-content-center mt-4">

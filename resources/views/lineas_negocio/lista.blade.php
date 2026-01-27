@@ -19,7 +19,6 @@
                     <th>Nombre</th>
                     <th>Descripción</th>
                     <th>Estado</th>
-                    <th>Fecha Creación</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,17 +26,18 @@
                 <td>{{ $lineaNegocio->nombre_linea }}</td>
                 <td>{{ $lineaNegocio->descripcion }}</td>
                 <td>{{ $lineaNegocio->estado }}</td>
-                <td>{{ $lineaNegocio->fecha_creacion }}</td>
                 <td class="text-center">
                     <form action="{{route('lineas_negocio.editar',$lineaNegocio->id)}}" method="POST" style="display:inline-block;">
                         @csrf
                         <button type="submit" class="btn btn-warning btn-sm">
                             Editar</button>
                     </form>
-                    <form action="{{route('lineas_negocio.eliminar',$lineaNegocio->id)}}" method="POST" style="display:inline-block;">
+                    <form action="{{route('lineas_negocio.eliminar',$lineaNegocio->id)}}" method="POST" class="form-eliminar" style="display:inline-block;">
                         @csrf
+                        @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm">
-                            Eliminar</button>
+                            Eliminar
+                        </button>
                     </form>
                 </td>
                 </tr>
@@ -54,7 +54,26 @@
 @stop
 
 @section('js')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
-    console.log("Hi, I'm using the Laravel-AdminLTE package!");
+    $('.form-eliminar').submit(function(e) {
+        e.preventDefault(); // Detiene el envío automático
+
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "¡Esta acción no se puede deshacer!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, eliminar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                this.submit(); // Si confirma, se envía el formulario
+            }
+        })
+    });
 </script>
 @stop

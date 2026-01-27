@@ -16,7 +16,7 @@ class LineasNegocioController extends Controller
         return view('lineas_negocio.lista', compact('lineasNegocio'));
     }
 
-   
+
     public function create()
     {
         $lineasNegocio = new Lineas_negocio();
@@ -25,23 +25,22 @@ class LineasNegocioController extends Controller
 
     public function store(Request $request)
     {
-        if($request->id == 0){
+        if ($request->id == 0) {
             $lineasNegocio = new Lineas_negocio();
-        }else{
+        } else {
             $lineasNegocio = Lineas_negocio::find($request->id);
         }
         $lineasNegocio->nombre_linea = $request->nombre_linea;
         $lineasNegocio->descripcion = $request->descripcion;
         $lineasNegocio->estado = $request->estado;
-        $lineasNegocio->fecha_creacion = $request->fecha_creacion;
         $lineasNegocio->save();
         return redirect()->route('lineas_negocio');
     }
 
-    
 
 
-    
+
+
     public function edit(Request $request)
     {
         $lineasNegocio = Lineas_negocio::find($request->id);
@@ -52,7 +51,7 @@ class LineasNegocioController extends Controller
 
     public function destroy(Request $request)
     {
-         $lineasNegocio = Lineas_negocio::find($request->id);
+        $lineasNegocio = Lineas_negocio::find($request->id);
         $lineasNegocio->delete();
         return redirect()->route('lineas_negocio');
     }

@@ -299,7 +299,6 @@ return [
     */
 
     'menu' => [
-        // Navbar items:
         [
             'type' => 'navbar-search',
             'text' => 'search',
@@ -307,9 +306,18 @@ return [
         ],
         ['header' => 'Areas'],
         [
-            'text' => 'Areas',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => 'Lineas de Negocio',
+            'icon' => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'Lista',
+                    'route' => 'lineas_negocio',
+                ],
+                [
+                    'text' => 'Nuevo',
+                    'route' => 'lineas_negocio.nuevo',
+                ],
+            ],
         ],
         [
             'text' => 'Productos',
@@ -322,20 +330,6 @@ return [
                 [
                     'text' => 'Nuevo',
                     'route' => 'productos.nuevo',
-                ],
-            ],
-        ],
-        [
-            'text' => 'Lineas de Negocio',
-            'icon' => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'Lista',
-                    'route' => 'lineas_negocio',
-                ],
-                [
-                    'text' => 'Nuevo',
-                    'route' => 'lineas_negocio.nuevo',
                 ],
             ],
         ],

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Producto;
+use App\Models\Lineas_negocio;
 use Illuminate\Http\Request;
 
 
@@ -18,8 +19,9 @@ class ProductoController extends Controller
 
     public function create()
     {
+        $lineasNegocio = Lineas_negocio::all();
         $productos = new Producto();
-        return view('productos.nuevo', compact('productos'));
+        return view('productos.nuevo', compact('lineasNegocio', 'productos'));
     }
 
     public function store(Request $request)

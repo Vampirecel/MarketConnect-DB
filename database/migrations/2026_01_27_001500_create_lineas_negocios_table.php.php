@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::create('lineas_negocios', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->text('nombre_linea');
             $table->text('descripcion');
             $table->text('estado');
-            $table->date('fecha_creacion');
+            $table->timestamps();
         });
     }
 
