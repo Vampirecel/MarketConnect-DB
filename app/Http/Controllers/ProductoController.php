@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 
+
 class ProductoController extends Controller
 {
     /**
@@ -16,10 +17,10 @@ class ProductoController extends Controller
     }
 
     public function create()
-{
-    $productos = new Producto();
-    return view('productos.nuevo', compact('productos'));
-}
+    {
+        $productos = new Producto();
+        return view('productos.nuevo', compact('productos'));
+    }
 
     public function store(Request $request)
     {
@@ -28,9 +29,11 @@ class ProductoController extends Controller
         }else{
             $productos = Producto::find($request->id);
         }
-        $productos->nombre = $request->nombre;
+        $productos->id_linea = $request->id_linea;
+        $productos->nombre_producto = $request->nombre_producto;
         $productos->descripcion = $request->descripcion;
         $productos->precio = $request->precio;
+        $productos->existencia = $request->existencia;
         $productos->save();
         return redirect()->route('productos');
     }
