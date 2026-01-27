@@ -29,7 +29,7 @@ class ProductoController extends Controller
         }else{
             $productos = Producto::find($request->id);
         }
-        $productos->id_linea = $request->id_linea;
+        $productos->id_linea_negocio = $request->id_linea_negocio;
         $productos->nombre_producto = $request->nombre_producto;
         $productos->descripcion = $request->descripcion;
         $productos->precio = $request->precio;

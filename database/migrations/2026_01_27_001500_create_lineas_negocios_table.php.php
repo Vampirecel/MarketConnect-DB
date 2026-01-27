@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->text('nombre_linea');
             $table->text('descripcion');
-            $table->boolean('activo');
+            $table->text('estado');
             $table->date('fecha_creacion');
         });
     }

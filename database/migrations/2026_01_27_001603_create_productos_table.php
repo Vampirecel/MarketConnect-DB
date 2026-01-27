@@ -18,9 +18,9 @@ return new class extends Migration
             $table->text('descripcion');
             $table->integer('precio');
             $table->integer('existencia');
-
-            $table->unsignedBigInteger('id_linea');
-            $table->foreign('id_linea')->references('id')->on('lineas');
+            $table->unsignedBigInteger('id_linea_negocio');
+            
+            $table->foreign('id_linea_negocio')->references('id')->on('lineas_negocios');
         });
     }
 
@@ -30,5 +30,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('productos');
+
     }
 };

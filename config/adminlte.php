@@ -325,6 +325,20 @@ return [
                 ],
             ],
         ],
+        [
+            'text' => 'Lineas de Negocio',
+            'icon' => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'Lista',
+                    'route' => 'lineas_negocio',
+                ],
+                [
+                    'text' => 'Nuevo',
+                    'route' => 'lineas_negocio.nuevo',
+                ],
+            ],
+        ],
     ],
 
     /*

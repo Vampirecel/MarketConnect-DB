@@ -32,8 +32,7 @@ class LineasNegocioController extends Controller
         }
         $lineasNegocio->nombre_linea = $request->nombre_linea;
         $lineasNegocio->descripcion = $request->descripcion;
-        $lineasNegocio->existencia = $request->existencia;
-        $lineasNegocio->activo = $request->activo;
+        $lineasNegocio->estado = $request->estado;
         $lineasNegocio->fecha_creacion = $request->fecha_creacion;
         $lineasNegocio->save();
         return redirect()->route('lineas_negocio');

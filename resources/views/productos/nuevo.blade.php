@@ -17,6 +17,10 @@
         <form action="{{route('productos.guardar')}}" method="POST">
             @csrf
             <input type="hidden" name="id" value="{{$productos->id}}">
+            <div class="form-group">
+                <label for="linea_negocio">Línea de Negocio</label>
+                <input type="text" id="linea_negocio" name="linea_negocio" value="{{$productos->linea_negocio}}" class="form-control" placeholder="Línea de Negocio">
+            </div>
 
             <div class="form-group">
                 <label for="nombre">Nombre</label>
@@ -30,6 +34,11 @@
             <div class="form-group">
                 <label for="precio">Precio</label>
                 <input type="number" id="precio" name="precio" value="{{$productos->precio}}" class="form-control" placeholder="Precio">
+            </div>
+
+            <div class="form-group">
+                <label for="existencia">Existencia</label>
+                <input type="number" id="existencia" name="existencia" value="{{$productos->existencia}}" class="form-control" placeholder="Existencia">
             </div>
 
             <div class="d-flex justify-content-center mt-4">

@@ -1,16 +1,16 @@
 @extends('adminlte::page')
 
-@section('title', 'Productos')
+@section('title', 'Lineas de Negocio')
 
 @section('content_header')
-<h1>Productos</h1>
+<h1>Lineas de Negocio</h1>
 @stop
 
 @section('content')
-<p>Productos</p>
+<p>Lineas de Negocio</p>
 <div class="card">
     <div class="card-header">
-        <h3>Datos de productos</h3>
+        <h3>Datos de Lineas de Negocio</h3>
     </div>
     <div class="card-body">
         <table id="users-table" class="table table-striped table-bordered">
@@ -18,22 +18,23 @@
                 <tr>
                     <th>Nombre</th>
                     <th>Descripción</th>
-                    <th>Precio</th>
+                    <th>Estado</th>
+                    <th>Fecha Creación</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($productos as $producto)
-                <td>{{ $producto->id_linea_negocio }}</td>
-                <td>{{ $producto->nombre }}</td>
-                <td>{{ $producto->descripcion }}</td>
-                <td>{{ $producto->precio }}</td>
+                @foreach ($lineasNegocio as $lineaNegocio)
+                <td>{{ $lineaNegocio->nombre_linea }}</td>
+                <td>{{ $lineaNegocio->descripcion }}</td>
+                <td>{{ $lineaNegocio->estado }}</td>
+                <td>{{ $lineaNegocio->fecha_creacion }}</td>
                 <td class="text-center">
-                    <form action="{{route('productos.editar',$producto->id)}}" method="POST" style="display:inline-block;">
+                    <form action="{{route('lineas_negocio.editar',$lineaNegocio->id)}}" method="POST" style="display:inline-block;">
                         @csrf
                         <button type="submit" class="btn btn-warning btn-sm">
                             Editar</button>
                     </form>
-                    <form action="{{route('productos.eliminar',$producto->id)}}" method="POST" style="display:inline-block;">
+                    <form action="{{route('lineas_negocio.eliminar',$lineaNegocio->id)}}" method="POST" style="display:inline-block;">
                         @csrf
                         <button type="submit" class="btn btn-danger btn-sm">
                             Eliminar</button>
