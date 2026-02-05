@@ -18,6 +18,12 @@ return new class extends Migration
             $table->text('descripcion');
             $table->integer('precio');
             $table->integer('existencia');
+            $table->integer('ancho');
+            $table->integer('alto');
+            $table->integer('peso');
+            $table->text('direccion');
+            $table->text('disponibilidad');
+
             $table->timestamps();
             $table->foreign('id_linea_negocio')->references('id')->on('lineas_negocios');
         });

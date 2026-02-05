@@ -19,6 +19,13 @@
                     <th>Nombre</th>
                     <th>Descripción</th>
                     <th>Precio</th>
+                    <th>Existencia</th>
+                    <th>Ancho</th>
+                    <th>Alto</th>
+                    <th>Peso</th>
+                    <th>Dirección</th>
+                    <th>Disponibilidad</th>
+                    <th class="text-center">Acciones</th>   
                 </tr>
             </thead>
             <tbody>
@@ -26,6 +33,12 @@
                 <td>{{ $producto->nombre_producto }}</td>
                 <td>{{ $producto->descripcion }}</td>
                 <td>{{ $producto->precio }}</td>
+                <td>{{ $producto->existencia}}</td>
+                <td>{{ $producto->ancho }}</td>
+                <td>{{ $producto->alto }}</td>
+                <td>{{ $producto->peso }}</td>
+                <td>{{ $producto->direccion }}</td>
+                <td>{{ $producto->disponibilidad }}</td>
                 <td class="text-center">
                     <form action="{{route('productos.editar',$producto->id)}}" method="POST" style="display:inline-block;">
                         @csrf

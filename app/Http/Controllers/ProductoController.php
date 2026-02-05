@@ -36,6 +36,11 @@ class ProductoController extends Controller
         $productos->descripcion = $request->descripcion;
         $productos->precio = $request->precio;
         $productos->existencia = $request->existencia;
+        $productos->ancho = $request->ancho;
+        $productos->alto = $request->alto;
+        $productos->peso = $request->peso;
+        $productos->direccion = $request->direccion;
+        $productos->disponibilidad = $request->disponibilidad;
         $productos->save();
         return redirect()->route('productos');
     }

@@ -50,6 +50,31 @@
                 <label for="existencia">Existencia</label>
                 <input type="number" id="existencia" name="existencia" value="{{$productos->existencia}}" class="form-control" placeholder="Existencia" min="0" required>
             </div>
+            
+            <div class="form-group">
+                <label for="ancho">Ancho</label>
+                <input type="number" id="ancho" name="ancho" value="{{$productos->ancho}}" class="form-control" placeholder="Ancho" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="alto">Alto</label>
+                <input type="number" id="alto" name="alto" value="{{$productos->alto}}" class="form-control" placeholder="Alto" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="peso">Peso</label>
+                <input type="number" id="peso" name="peso" value="{{$productos->peso}}" class="form-control" placeholder="Peso" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="direccion">Dirección</label>
+                <input type="text" id="direccion" name="direccion" value="{{$productos->direccion}}" class="form-control" placeholder="Dirección" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="disponibilidad">Disponibilidad</label>
+                <input type="text" id="disponibilidad" name="disponibilidad" value="{{$productos->disponibilidad}}" class="form-control" placeholder="Disponibilidad" required>         
+            </div>
 
             <div class="d-flex justify-content-center mt-4">
                 <button type="submit" class="btn btn-success mx-2">
